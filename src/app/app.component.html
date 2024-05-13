@@ -1,0 +1,54 @@
+<div class="container-fluid">
+  <div class="row text-center">
+    <div class="col-6">
+      <h1>Entrenamiento</h1>
+      <input class="form-control" type="file" (change)="onFileSelected($event)">
+      <br>
+      <textarea class="form-control text-center" rows="10" [(ngModel)]="fileContent" readonly></textarea>
+      <br>
+      <h3>Configuración de Entrenamiento</h3>
+      <form class="row g-3" (submit)="enviarArchivoYParametros($event)">
+        <div class="col-6">
+          <label for="inputAlpha">Alpha</label>
+          <input type="text" class="form-control" id="inputAlpha" name="inputAlpha" placeholder="Alpha" [(ngModel)]="alpha">
+        </div>
+        <div class="col-6">
+          <label>Inicializar pesos</label>
+          <br>
+          <!-- Aquí puedes agregar los campos para inicializar pesos -->
+        </div>
+        <div class="col-6">
+          <label for="inputBias">Bias</label>
+          <input type="text" class="form-control" id="inputBias" name="inputBias" placeholder="Bias" [(ngModel)]="bias">
+        </div>
+        <div class="col-6">
+          <label for="inputEpocas">Épocas</label>
+          <input type="number" class="form-control" id="inputEpocas" name="inputEpocas" placeholder="Epocas" [(ngModel)]="epocas">
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary w-25">Iniciar Entrenamiento</button>
+        </div>
+        <div class="col-12">
+          <textarea #resultadoTextArea class="w-100 form-control" style="resize: none; overflow-x: auto; height: 20rem;">Resultados del Entrenamiento</textarea>
+        </div>
+      </form>
+    </div>
+    <div class="col-6">
+      <h1>Test</h1>
+      <input class="form-control" type="file" (change)="onFileSelected2($event)">
+      <br>
+      <textarea class="form-control text-center" rows="10" [(ngModel)]="fileContent2" readonly></textarea>
+      <br>
+      <form class="row g-3" (ngSubmit)="predecir()" #myForm="ngForm">
+        <div class="col-12">
+          <textarea #resultadoPrediccion class="w-100 form-control" style="resize: none; overflow-x: auto; height: 20rem;">Resultados de la predicción</textarea>
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Predecir</button>
+        </div>
+      </form>
+
+
+    </div>
+</div>
+</div>
